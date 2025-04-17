@@ -1,6 +1,8 @@
 
 local jstest = {}
 
-function jstest.setup()
+jstest.setup = function()
   print(' -- JSTEST SETUP --')
 end
+
+return jstest
