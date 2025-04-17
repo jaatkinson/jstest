@@ -26,8 +26,13 @@ vim.api.nvim_create_user_command('CreateSplit', function(opts)
   local plugin_dir = vim.fn.fnamemodify(vim.fn.expand('<sfile>'), ':h:h:h')
   local script_path = plugin_dir .. '/index.js'
 
+  print(plugin_dir)
+  print(script_path)
+
   -- Get the user-provided argument (opts.args) or empty string
   local user_input = opts.args or ''
+
+  print(user_input)
 
   -- Run the Node.js script with the argument and redraw the screen
   local cmd = string.format('node %s %s', vim.fn.shellescape(script_path), vim.fn.shellescape(user_input))
