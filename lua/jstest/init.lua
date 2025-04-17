@@ -8,6 +8,8 @@ local jstest = {
 jstest.setup = function(opts)
   print(' -- JSTEST SETUP --')
 
+  opts = opts or {}
+
   for k,v in pairs(opts) do jstest.opts[k] = v end
 
 end
