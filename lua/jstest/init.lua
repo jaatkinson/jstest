@@ -23,9 +23,11 @@ end
 -- Define the CreateSplit command with argument support
 vim.api.nvim_create_user_command('CreateSplit', function(opts)
   -- Get the plugin directory
-  local plugin_dir = vim.fn.fnamemodify(vim.fn.expand('<sfile>'), ':h:h:h')
+  local source = debug.getinfo(1, 'S').source:sub(2) -- Remove '@' prefix
+  local plugin_dir = vim.fn.fnamemodify(source, ':h:h:h') -- Navigate up to plugin root
   local script_path = plugin_dir .. '/index.js'
 
+  print(source)
   print(plugin_dir)
   print(script_path)
 
@@ -47,3 +49,4 @@ end, {
 })
 
 return jstest
+
